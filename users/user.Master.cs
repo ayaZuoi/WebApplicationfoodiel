@@ -11,7 +11,22 @@ namespace WebApplicationfoodiel.users
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Request.Url.AbsoluteUri.ToString().Contains("Defult.aspx") || (Request.Url.AbsoluteUri.ToString().Contains("book.aspx")))
+            {
+             
+              
+            }
+            else
+            {
 
+                Control sliderusercontrol = (Control)Page.LoadControl("../sliderusercontrol.ascx");
+                
+                //
+                Pnlofsliderusercontrol.Controls.Add(sliderusercontrol);
+
+
+
+            }
         }
     }
 }

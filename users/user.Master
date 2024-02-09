@@ -1,5 +1,8 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="user.master.cs" Inherits="WebApplicationfoodiel.users.user" %>
 
+<%@ Register Src="~/sliderusercontrol.ascx" TagPrefix="uc1" TagName="sliderusercontrol" %>
+
+
 <!DOCTYPE html>
 
 <html>
@@ -32,6 +35,23 @@
  <!-- responsive style -->
  <link href="../Tampletefiles/css/responsive.css" rel="stylesheet" />
  <link href="../Tampletefiles/css/responsive.css" rel="stylesheet" />
+<script src="../Tampletefiles/js/jquery-3.4.1.min.js"></script>
+<script>
+    $(function () {
+        // this will get the full url at the address bar
+        var url = window.location.href;
+        // passes on every
+        $("#navbarSupportedContent a").each(function () {
+            // checks
+            if (url == this.href) {
+                $(this).closest("li").addClass("active");
+            }
+        });
+    });
+</script>
+
+
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -59,18 +79,18 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.html">الصفحة الرئيسية <span class="sr-only">(current)</span></a>
+              <li class="nav-item ">
+                <a class="nav-link" href="Defult.aspx">الصفحة الرئيسية </a>
               </li>
             
               <li class="nav-item">
-                <a class="nav-link" href="menu.html">Menu</a>
+                <a class="nav-link" href="menu.aspx">Menu</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">حول</a>
+                <a class="nav-link" href="about.aspx">حول</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="book.html">حجز</a>
+                <a class="nav-link" href="book.aspx">حجز</a>
               </li>
             </ul>
             <div class="user_option">
@@ -146,84 +166,7 @@
     </header>
     <!-- end header section -->
     <!-- slider section -->
-    <section class="slider_section ">
-      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 col-lg-6 ">
-                  <div class="detail-box">
-                    <h1>
-                      مطعم للوجبات السريعة
-                    </h1>
-                    <p>
-                    
-ابدأ يومك بوجبة سريعة لذيذة وشهية من مطعمنا الرائع. نحن نقدم أشهى الوجبات السريعة التي تناسب جميع الأذواق وتلبي رغباتك الغذائية
-                    </p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">
-                       أطلب الان
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item ">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 col-lg-6 ">
-                  <div class="detail-box">
-                    <h1>
-                     مطعم الوجبات السريعة
-                    </h1>
-                    <p>
-                      تعال واستمتع بتشكيلة متنوعة من البرجر الطازج والسندويشات الشهية المحشوة بأفضل المكونات الطازجة. ستجد لدينا أيضًا البطاطس المقرمشة والمقبلات اللذيذة التي تضفي لمسة من النكهة إلى وجبتك.
-                    </p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">
-                       أطلب الان
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 col-lg-6 ">
-                  <div class="detail-box">
-                    <h1>
-                    مطعم الوجبات السريعة
-                    </h1>
-                    <p>
-                      نحن نولي اهتمامًا كبيرًا لجودة المكونات ونحرص على تقديم وجباتنا بأعلى مستويات النظافة والسلامة الغذائية. نحن نضمن لك تجربة آمنة ولذيذة في كل زيارة.
-                    </p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">
-                       أطلب الان
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <ol class="carousel-indicators">
-            <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
-            <li data-target="#customCarousel1" data-slide-to="1"></li>
-            <li data-target="#customCarousel1" data-slide-to="2"></li>
-          </ol>
-        </div>
-      </div>
-
-    </section>
+      <asp:Panel ID="Pnlofsliderusercontrol" runat="server"></asp:Panel>
     <!-- end slider section -->
   </div>
 
@@ -315,7 +258,7 @@
     </form>
 
     <!-- jQery -->
-<script src="../Tampletefiles/js/jquery-3.4.1.min.js"></script>
+
 <!-- popper js -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
 </script>
